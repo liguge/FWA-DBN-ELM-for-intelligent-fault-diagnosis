@@ -13,3 +13,30 @@ pages={42013-42026},
 doi={10.1109/ACCESS.2021.3064962},  
 url = {https://ieeexplore.ieee.org/document/9374403},  
 }
+
+
+
+
+@article{MCDONALD2012237,  
+title = {Maximum correlated Kurtosis deconvolution and application on gear tooth chip fault detection},  
+journal = {Mechanical Systems and Signal Processing},  
+volume = {33},  
+pages = {237-255},  
+year = {2012},  
+issn = {0888-3270},  
+doi = {https://doi.org/10.1016/j.ymssp.2012.06.010},  
+url = {https://www.sciencedirect.com/science/article/pii/S0888327012002452},  
+author = {Geoff L. McDonald and Qing Zhao and Ming J. Zuo},  
+}
+
+
+@ARTICLE{7874107,  
+author={Azami, Hamed and Rostaghi, Mostafa and Abásolo, Daniel and Escudero, Javier},  
+journal={IEEE Transactions on Biomedical Engineering},   
+title={Refined Composite Multiscale Dispersion Entropy and its Application to Biomedical Signals},   
+year={2017},  
+volume={64},  
+number={12},  
+pages={2872-2879},  
+doi={10.1109/TBME.2017.2679136}  
+}
