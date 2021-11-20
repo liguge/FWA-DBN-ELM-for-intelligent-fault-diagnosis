@@ -1,6 +1,6 @@
 # IFWA-DBN-ELM-for-fault-diagnosis
 
-if it helps you, please cite it：
+# If this project helps you, please cite:
 
 @ARTICLE{9374403,  
 author={Luo, Hao and **He, Chao** and Zhou, Jianing and Zhang, Li},  
