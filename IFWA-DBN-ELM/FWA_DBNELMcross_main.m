@@ -2,92 +2,92 @@ clear
 close all
 format compact 
 format long
-%% 1.Êı¾İ¼ÓÔØ
-fprintf(1,'¼ÓÔØÊı¾İ \n');
-load('001');%ÆäÖĞ1-173Îª1Àà£¬174-343Îª2Àà 344-510Îª3Àà 511-600Îª4Àà£¬¸÷Ñ¡Ôñ20%×÷Îª²âÊÔ¼¯
-%µÚÒ»Àà173×é
+%% 1.æ•°æ®åŠ è½½
+fprintf(1,'åŠ è½½æ•°æ® \n');
+load('001');%å…¶ä¸­1-173ä¸º1ç±»ï¼Œ174-343ä¸º2ç±» 344-510ä¸º3ç±» 511-600ä¸º4ç±»ï¼Œå„é€‰æ‹©20%ä½œä¸ºæµ‹è¯•é›†
+%ç¬¬ä¸€ç±»173ç»„
 [i1 i2]=sort(rand(15,1)); 
 train(1:12,:)=input(i2(1:12),:);     train_label(1:12,1)=output(i2(1:12),1);
 test(1:3,:)=input(i2(13:15),:);     test_label(1:3,1)=output(i2(13:15),1);
-%µÚ¶şÀàÓĞ170×é,16-30Îª2Àà
+%ç¬¬äºŒç±»æœ‰170ç»„,16-30ä¸º2ç±»
 [i1 i2]=sort(rand(15,1));
 train(13:24,:)=input(15+i2(1:12),:);    train_label(13:24,1)=output(15+i2(1:12),1);
 test(4:6,:)=input(15+i2(13:15),:);     test_label(4:6,1)=output(15+i2(13:15),1);
-%µÚÈıÀàÓĞ167,31-45Îª3Àà
+%ç¬¬ä¸‰ç±»æœ‰167,31-45ä¸º3ç±»
 [i1 i2]=sort(rand(15,1));
 train(25:36,:)=input(30+i2(1:12),:);    train_label(25:36,1)=output(30+i2(1:12),1);
 test(7:9,:)=input(30+i2(13:15),:);     test_label(7:9,1)=output(30+i2(13:15),1);
-%µÚ4ÀàÓĞ90,46-60Îª4Àà
+%ç¬¬4ç±»æœ‰90,46-60ä¸º4ç±»
 [i1 i2]=sort(rand(15,1));
 train(37:48,:)=input(45+i2(1:12),:);    train_label(37:48,1)=output(45+i2(1:12),1);
 test(10:12,:)=input(45+i2(13:15),:);     test_label(10:12,1)=output(45+i2(13:15),1); 
 clear i1 i2 input output
-% %%´òÂÒË³Ğò
+% %%æ‰“ä¹±é¡ºåº
 k=rand(48,1);[m n]=sort(k);
 train=train(n(1:48),:);train_label=train_label(n(1:48),:);
 k=rand(12,1);[m n]=sort(k);
 test=test(n(1:12),:);test_label=test_label(n(1:12),:);
 % clear k m n
-%no_dims = round(intrinsic_dim(train, 'MLE')); %roundËÄÉáÎåÈë
+%no_dims = round(intrinsic_dim(train, 'MLE')); %roundå››èˆäº”å…¥
 %disp(['MLE estimate of intrinsic dimensionality: ' num2str(no_dims)]);
-numbatches=4;%Êı¾İ·Ö¿éÊı
-numcases=12;%Ã¿¿éÊı¾İ¼¯µÄÑù±¾¸öÊı£¨²»ÄÜÌ«Ğ¡£©¿éÊı²»ÄÜ³¬¹ıÑù±¾Êı
-numdims=size(train,2);%µ¥¸öÑù±¾µÄÎ¬Êı
-% ÑµÁ·Êı¾İ
-x=train;%½«Êı¾İ×ª»»³ÉDBNµÄÊı¾İ¸ñÊ½
+numbatches=4;%æ•°æ®åˆ†å—æ•°
+numcases=12;%æ¯å—æ•°æ®é›†çš„æ ·æœ¬ä¸ªæ•°ï¼ˆä¸èƒ½å¤ªå°ï¼‰å—æ•°ä¸èƒ½è¶…è¿‡æ ·æœ¬æ•°
+numdims=size(train,2);%å•ä¸ªæ ·æœ¬çš„ç»´æ•°
+% è®­ç»ƒæ•°æ®
+x=train;%å°†æ•°æ®è½¬æ¢æˆDBNçš„æ•°æ®æ ¼å¼
 for i=1:numbatches
     train1=x((i-1)*numcases+1:i*numcases,:);
     batchdata(:,:,i)=train1;
-end%½«·ÖºÃµÄ10×éÊı¾İ¶¼·ÅÔÚbatchdataÖĞ
-%% rbm²ÎÊı
-maxepoch=20;%ÑµÁ·rbmµÄ´ÎÊı
-hid=4; %Òşº¬²ãÊı
-hmax=500;hmin=100; %¸÷Òşº¬²ã½ÚµãÊıÈ¡ÖµÇø¼ä
+end%å°†åˆ†å¥½çš„10ç»„æ•°æ®éƒ½æ”¾åœ¨batchdataä¸­
+%% rbmå‚æ•°
+maxepoch=20;%è®­ç»ƒrbmçš„æ¬¡æ•°
+hid=4; %éšå«å±‚æ•°
+hmax=500;hmin=100; %å„éšå«å±‚èŠ‚ç‚¹æ•°å–å€¼åŒºé—´
 tic;
 %%
-%h=PSO_dbnelm_cross(hid,hmax,hmin,batchdata,train,train_label); %PSOÓÅ»¯Òşº¬²ã½ÚµãÊı
+%h=PSO_dbnelm_cross(hid,hmax,hmin,batchdata,train,train_label); %PSOä¼˜åŒ–éšå«å±‚èŠ‚ç‚¹æ•°
 %%
 t1=toc
 tic;
 %h=round(h);
-numpen0=250; numpen1=250; numpen2=250;numpen3=250; %dbn×îÖÕÒşº¬²ãµÄ½ÚµãÊı
-disp('¹¹½¨Ò»¸önum2str(H)²ãµÄÖÃĞÅÍøÂç');
+numpen0=250; numpen1=250; numpen2=250;numpen3=250; %dbnæœ€ç»ˆéšå«å±‚çš„èŠ‚ç‚¹æ•°
+disp('æ„å»ºä¸€ä¸ªnum2str(H)å±‚çš„ç½®ä¿¡ç½‘ç»œ');
 clear i 
-%% ÑµÁ·µÚ1²ãRBM
+%% è®­ç»ƒç¬¬1å±‚RBM
 fprintf(1,'Pretraining Layer 1 with RBM: %d-%d \n',numdims,numpen0);%6400-500
 numhid=numpen0;
 restart=1;
-rbm1;%Ê¹ÓÃcd-kÑµÁ·rbm£¬×¢Òâ´ËrbmµÄ¿ÉÊÓ²ã²»ÊÇ¶şÖµµÄ£¬¶øÒşº¬²ãÊÇ¶şÖµµÄ
+rbm1;%ä½¿ç”¨cd-kè®­ç»ƒrbmï¼Œæ³¨æ„æ­¤rbmçš„å¯è§†å±‚ä¸æ˜¯äºŒå€¼çš„ï¼Œè€Œéšå«å±‚æ˜¯äºŒå€¼çš„
 vishid1=vishid;hidrecbiases=hidbiases;
-%% ÑµÁ·µÚ2²ãRBM
+%% è®­ç»ƒç¬¬2å±‚RBM
 fprintf(1,'\nPretraining Layer 2 with RBM: %d-%d \n',numpen0,numpen1);%500-200
-batchdata=batchposhidprobs;%½«µÚÒ»¸öRBMµÄÒşº¬²ãµÄÊä³ö×÷ÎªµÚ¶ş¸öRBM µÄÊäÈë
-numhid=numpen1;%½«numpenµÄÖµ¸³¸ønumhid£¬×÷ÎªµÚ¶ş¸örbmÒşº¬²ãµÄ½ÚµãÊı
+batchdata=batchposhidprobs;%å°†ç¬¬ä¸€ä¸ªRBMçš„éšå«å±‚çš„è¾“å‡ºä½œä¸ºç¬¬äºŒä¸ªRBM çš„è¾“å…¥
+numhid=numpen1;%å°†numpençš„å€¼èµ‹ç»™numhidï¼Œä½œä¸ºç¬¬äºŒä¸ªrbméšå«å±‚çš„èŠ‚ç‚¹æ•°
 restart=1;
 rbm1;
 hidpen=vishid; penrecbiases=hidbiases; hidgenbiases=visbiases;
-%% ÑµÁ·µÚ3²ãRBM
+%% è®­ç»ƒç¬¬3å±‚RBM
 fprintf(1,'\nPretraining Layer 3 with RBM: %d-%d \n',numpen1,numpen2);%200-100
-batchdata=batchposhidprobs;%ÏÔÈ»£¬½«µÚ¶ş¸çRBMµÄÊä³ö×÷ÎªµÚÈı¸öRBMµÄÊäÈë
-numhid=numpen2;%µÚÈı¸öÒşº¬²ãµÄ½ÚµãÊı
+batchdata=batchposhidprobs;%æ˜¾ç„¶ï¼Œå°†ç¬¬äºŒå“¥RBMçš„è¾“å‡ºä½œä¸ºç¬¬ä¸‰ä¸ªRBMçš„è¾“å…¥
+numhid=numpen2;%ç¬¬ä¸‰ä¸ªéšå«å±‚çš„èŠ‚ç‚¹æ•°
 restart=1;
 rbm1;
 hidpen2=vishid; penrecbiases2=hidbiases; hidgenbiases2=visbiases;
-%% ÑµÁ·µÚ4²ãRBM
+%% è®­ç»ƒç¬¬4å±‚RBM
 fprintf(1,'\nPretraining Layer 4 with RBM: %d-%d \n',numpen2,numpen3);%200-100
-batchdata=batchposhidprobs;%ÏÔÈ»£¬½«µÚ¶ş¸çRBMµÄÊä³ö×÷ÎªµÚÈı¸öRBMµÄÊäÈë
-numhid=numpen3;%µÚÈı¸öÒşº¬²ãµÄ½ÚµãÊı
+batchdata=batchposhidprobs;%æ˜¾ç„¶ï¼Œå°†ç¬¬äºŒå“¥RBMçš„è¾“å‡ºä½œä¸ºç¬¬ä¸‰ä¸ªRBMçš„è¾“å…¥
+numhid=numpen3;%ç¬¬ä¸‰ä¸ªéšå«å±‚çš„èŠ‚ç‚¹æ•°
 restart=1;
 rbm1;
 hidpen3=vishid; penrecbiases3=hidbiases; hidgenbiases3=visbiases;
 
- %% ÑµÁ·¼«ÏŞÑ§Ï°»ú
- % ÑµÁ·¼¯ÌØÕ÷Êä³ö
+ %% è®­ç»ƒæé™å­¦ä¹ æœº
+ % è®­ç»ƒé›†ç‰¹å¾è¾“å‡º
 w1=[vishid1; hidrecbiases]; 
 w2=[hidpen; penrecbiases]; 
 w3=[hidpen2; penrecbiases2];
 w4=[hidpen3; penrecbiases3];
-digitdata = [x ones(size(x,1),1)];%x±íÊ¾trainÊı¾İ¼¯
+digitdata = [x ones(size(x,1),1)];%xè¡¨ç¤ºtrainæ•°æ®é›†
 w1probs = 1./(1 + exp(-digitdata*w1));%
   w1probs = [w1probs  ones(size(x,1),1)];%
 w2probs = 1./(1 + exp(-w1probs*w2));%
@@ -95,11 +95,11 @@ w2probs = 1./(1 + exp(-w1probs*w2));%
 w3probs = 1./(1 + exp(-w2probs*w3)); %
   w3probs = [w3probs ones(size(x,1),1)];%
 w4probs = 1./(1 + exp(-w3probs*w4)); % 
-H = w4probs';  %%µÚÈı¸örbmµÄÊµ¼ÊÊä³öÖµ£¬Ò²ÊÇelmµÄÊäÈëÖµH
-lamda=0.001;  %% ÕıÔò»¯ÏµÊıÔÚ0.0007-0.00037Ö®¼äÊ±  ²âÊÔ¾«¶È×î´ó81.667%
-H=H+1/lamda;  %¼ÓÈëregularization factor
-T =train_label';            %ÑµÁ·¼¯±êÇ©
-T1=ind2vec(T);              %×ö·ÖÀàĞèÒªÏÈ½«T×ª»»³ÉÏòÁ¿Ë÷Òı
+H = w4probs';  %%ç¬¬ä¸‰ä¸ªrbmçš„å®é™…è¾“å‡ºå€¼ï¼Œä¹Ÿæ˜¯elmçš„è¾“å…¥å€¼H
+lamda=0.001;  %% æ­£åˆ™åŒ–ç³»æ•°åœ¨0.0007-0.00037ä¹‹é—´æ—¶  æµ‹è¯•ç²¾åº¦æœ€å¤§81.667%
+H=H+1/lamda;  %åŠ å…¥regularization factor
+T =train_label';            %è®­ç»ƒé›†æ ‡ç­¾
+T1=ind2vec(T);              %åšåˆ†ç±»éœ€è¦å…ˆå°†Tè½¬æ¢æˆå‘é‡ç´¢å¼•
 OutputWeight=pinv(H') *T1'; 
 Y=(H' * OutputWeight)';
 temp_Y=zeros(1,size(Y,2));
@@ -109,16 +109,16 @@ for n=1:size(Y,2)
 end
 Y_train=temp_Y;
 %Y_train=vec2ind(temp_Y1);
-% ÑµÁ·¼¯×¼È·ÂÊ
+% è®­ç»ƒé›†å‡†ç¡®ç‡
 train_accuracy=sum(Y_train==T)/length(T)
-% ÑµÁ·¼¯Êµ¼Ê·ÖÀàÓëÔ¤²â·ÖÀà¶Ô±È
+% è®­ç»ƒé›†å®é™…åˆ†ç±»ä¸é¢„æµ‹åˆ†ç±»å¯¹æ¯”
 figure(1)
 plot(Y_train,'bo');hold on 
 plot(T,'r*');
 
-%% ²âÊÔ¼«ÏŞÑ§Ï°»ú
+%% æµ‹è¯•æé™å­¦ä¹ æœº
 N2 = size(test,1);
-% ²âÊÔ¼¯ÌØÕ÷Êä³ö
+% æµ‹è¯•é›†ç‰¹å¾è¾“å‡º
 w1=[vishid1; hidrecbiases]; %(784+1*500)
 w2=[hidpen; penrecbiases]; %(500+1*500)
 w3=[hidpen2; penrecbiases2];%(500+1*2000)
@@ -132,7 +132,7 @@ w3probs = 1./(1 + exp(-w2probs*w3));
   w3probs = [w3probs ones(N2,1)];
 w4probs = 1./(1 + exp(-w3probs*w4));  
 H1=w4probs';
-%¼ÓÈëÕıÔò»¯ÏµÊı
+%åŠ å…¥æ­£åˆ™åŒ–ç³»æ•°
 H1=H1+1/lamda;
 TY=(H1' * OutputWeight)';     %   TY: the actual output of the testing data
 temp_Y=zeros(1,size(TY,2));
@@ -141,18 +141,18 @@ for n=1:size(TY,2)
     temp_Y(n)=index;
 end
 TY1=temp_Y;
-% ¼ÓÔØÊä³ö
+% åŠ è½½è¾“å‡º
 TV=test_label';
-% ²âÊÔ¼¯·ÖÀà×¼È·ÂÊ
+% æµ‹è¯•é›†åˆ†ç±»å‡†ç¡®ç‡
 test_accuracy = sum(TV==TY1) / length(TV)
-% ²âÊÔ¼¯Êµ¼Ê·ÖÀàÓëÔ¤²â·ÖÀà¶Ô±È
+% æµ‹è¯•é›†å®é™…åˆ†ç±»ä¸é¢„æµ‹åˆ†ç±»å¯¹æ¯”
 figure(2)
 plot(TV,'r*');
 hold on
 plot(TY1,'bo');
-xlabel('²âÊÔ¼¯Ñù±¾Êı')
-ylabel('±êÇ©ÖÖÀà')
-title('²âÊÔ½×¶Î£ºÊµ¼ÊÊä³öÓëÀíÏëÊä³öµÄ²î');
-legend('ÕæÊµÖµ','Ô¤²âÖµ')
-% ³ÌĞòÔËĞĞÊ±¼ä
+xlabel('æµ‹è¯•é›†æ ·æœ¬æ•°')
+ylabel('æ ‡ç­¾ç§ç±»')
+title('æµ‹è¯•é˜¶æ®µï¼šå®é™…è¾“å‡ºä¸ç†æƒ³è¾“å‡ºçš„å·®');
+legend('çœŸå®å€¼','é¢„æµ‹å€¼')
+% ç¨‹åºè¿è¡Œæ—¶é—´
 t2=toc
