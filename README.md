@@ -11,7 +11,6 @@ This is the complete implementation of pytorch version of  Rolling Bearing Sub-H
   year={2010},
   organization={Springer}
 }  
-}
 ```
 # If this project helps you, please cite:
 
