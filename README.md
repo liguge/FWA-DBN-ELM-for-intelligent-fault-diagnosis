@@ -1,7 +1,18 @@
 # IFWA-DBN-ELM-for-fault-diagnosis
 This is the complete implementation of pytorch version of  Rolling Bearing Sub-Health Recognition via Extreme Learning Machine Based on Deep Belief Network Optimized by Improved Fireworks
 
-
+# Fireworks Algorithm
+```html
+@inproceedings{tan2010fireworks,
+  title={Fireworks algorithm for optimization},
+  author={Tan, Ying and Zhu, Yuanchun},
+  booktitle={International conference in swarm intelligence},
+  pages={355--364},
+  year={2010},
+  organization={Springer}
+}  
+}
+```
 # If this project helps you, please cite:
 
 ```html
