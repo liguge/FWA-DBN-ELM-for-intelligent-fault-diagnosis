@@ -1,5 +1,6 @@
-# IFWA-DBN-ELM-for-fault-diagnosis
-This is the complete implementation of pytorch version of  Rolling Bearing Sub-Health Recognition via Extreme Learning Machine Based on Deep Belief Network Optimized by Improved Fireworks
+# FWA-DBN-ELM-for-fault-diagnosis
+This is the implementation of pytorch version of  Rolling Bearing Sub-Health Recognition via Extreme Learning Machine Based on Deep Belief Network Optimized by Improved Fireworks
+
 # If this project helps you, please cite:
 
 ```html
