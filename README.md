@@ -1,4 +1,6 @@
 # IFWA-DBN-ELM-for-fault-diagnosis
+This is the complete implementation of pytorch version of  Rolling Bearing Sub-Health Recognition via Extreme Learning Machine Based on Deep Belief Network Optimized by Improved Fireworks
+
 
 # If this project helps you, please cite:
 
@@ -15,8 +17,6 @@ doi={10.1109/ACCESS.2021.3064962},
 url = {https://ieeexplore.ieee.org/document/9374403},  
 }
 ```
-
-
 ```html
 @article{MCDONALD2012237,  
 title = {Maximum correlated Kurtosis deconvolution and application on gear tooth chip fault detection},  
