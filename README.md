@@ -1,5 +1,5 @@
 # FWA-DBN-ELM-for-fault-diagnosis
-This is the partial implementation of pytorch version of  [Rolling Bearing Sub-Health Recognition via Extreme Learning Machine Based on Deep Belief Network Optimized by Improved Fireworks](https://ieeexplore.ieee.org/document/9374403)
+This is the partial implementation of Matlab version of  [Rolling Bearing Sub-Health Recognition via Extreme Learning Machine Based on Deep Belief Network Optimized by Improved Fireworks](https://ieeexplore.ieee.org/document/9374403)
 
 PSO-MCKD
 FWA-MCKD
