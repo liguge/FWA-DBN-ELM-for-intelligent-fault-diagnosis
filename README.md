@@ -4,7 +4,7 @@ This is the partial implementation of Matlab version of  [Rolling Bearing Sub-He
 PSO-MCKD
 FWA-MCKD
 
-# If this project helps you, please cite:
+# If this project helps you, welcome to cite it:
 
 ```html
 @ARTICLE{9374403,  
